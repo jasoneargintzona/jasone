@@ -10,7 +10,8 @@ $color5: #31293dff;
 #title
 {
   color: #002fa7;
-  font-size: 4rem;
+  font-size: 4.3rem;
+	font-weight: bold;
 	text-align: center;
 }
 
