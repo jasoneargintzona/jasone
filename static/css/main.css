@@ -21,6 +21,11 @@ header
   padding: 4em;
 }
 
+article
+{
+	border-bottom: solid;
+}
+
 
 
 
