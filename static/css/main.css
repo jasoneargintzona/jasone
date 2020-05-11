@@ -146,4 +146,5 @@
 #menuToggle input:checked ~ ul
 {
   transform: none;
+  opacity: 1;
 }
