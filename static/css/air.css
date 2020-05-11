@@ -150,7 +150,8 @@ textarea {
 
 body {
   color: #444;
-  font-family: 'Open Sans', Helvetica, sans-serif;
+  /*font-family: 'Open Sans', Helvetica, sans-serif;*/
+	font-family: 'DM Mono', monospace;
   font-weight: 300;
   margin: 6rem auto 1rem;
   max-width: 48rem;
