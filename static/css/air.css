@@ -155,7 +155,7 @@ body {
   /*font-family: 'Open Sans', Helvetica, sans-serif;*/
 	font-family: 'DM Mono', monospace;
   font-weight: 300;
-  margin: 10% auto 10%;
+  margin: 0% auto 10%;
   max-width: 65rem;
   text-align: justify;
 }
