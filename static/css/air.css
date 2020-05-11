@@ -156,8 +156,9 @@ body {
 	font-family: 'DM Mono', monospace;
   font-weight: 300;
   margin: 0% auto 10%;
-  max-width: 65rem;
+  max-width: 65%;
   text-align: justify;
+	padding: 10%;
 }
 
 img {
