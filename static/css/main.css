@@ -1,12 +1,14 @@
 #title
 {
   color: red;
+  font-size: 4rem;
 }
 
 header
 {
   display: grid;
   grid-template-columns: 15% 70% 15%;
+  padding: 4em;
 }
 
 
