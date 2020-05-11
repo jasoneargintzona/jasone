@@ -125,8 +125,8 @@
 
   opacity: 0.22;
   
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-    opacity 0.55s ease;
+    
+  transition: opacity 1s ease-in, transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
 #menu:target
