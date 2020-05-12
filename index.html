@@ -64,7 +64,7 @@
 
       <div class="menu-trigger"></div>
 
-      <section>
+      <section id="articles">
         <article id="article-000">
           article content
         </article>
@@ -73,6 +73,7 @@
     </div>
 
     <script charset="utf-8">
+
       function loadDoc(url, cFunction) {
         var xhttp;
         xhttp=new XMLHttpRequest();
@@ -85,6 +86,15 @@
         xhttp.send();
       }
 
+      function getArticlesList(xhttp) {
+        var text = xhttp.responseText;
+        const obj = JSON.parse(text);
+        $.each(obj["tree"], function( key, articles ) {
+          console.log(articles["path"]);
+          $("#articles").append("<article id='"+articles["path"]+"'>"+articles["path"]+"</article>");
+        })
+      }
+
       function myFunction(xhttp) {
         var converter = new showdown.Converter(),
           text      = xhttp.responseText;
@@ -93,8 +103,9 @@
       }
 
       $( document ).ready(function() {
+          loadDoc('https://api.github.com/repos/AlxndrPsclt/jasone/git/trees/1066c8cf118d8eb39fa778215241b2891d23bd4f', getArticlesList);
           console.log( "ready!" );
-          loadDoc('articles/000.md', myFunction);
+          /*loadDoc('articles/000.md', myFunction);*/
       });
     </script>
 
