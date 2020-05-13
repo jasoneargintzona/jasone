@@ -21,8 +21,7 @@ function getArticlesList(xhttp) {
     cat_name=categories["name"];
     data.categories.push(cat_name)
     console.log(cat_name);
-    $("#menu").append("<li><a href=# target='_blank'>"+cat_name+"</a></li>");
-    $("#menu").append("<li><button onclick=\"displayArticles(['"+cat_name+"'])\">"+cat_name+"</button></li>");
+    $("#menu").append("<li><button onclick=\"displayArticles(['"+cat_name+"']);\">"+cat_name+"</button></li>");
     loadDoc("https://api.github.com/repos/AlxndrPsclt/jasone/contents/articles/"+cat_name, getContentFromCategory, cat_name);
   })
 }
@@ -33,10 +32,12 @@ function displayArticle(article){
 }
 
 function displayArticles(categories) {
+  console.log("Check de ou ça en est");
   console.log(categories);
   $("#articles").empty();
-  for (article in data["content"]) {
-    console.log(article.category);
+  for (id_article in data["content"]) {
+    article=data.content[id_article];
+    console.log(article);
     if (categories.includes(article.category)) {
       console.log("Ok, part of the category");
       displayArticle(article);
