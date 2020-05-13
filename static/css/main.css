@@ -25,8 +25,8 @@ header
 article
 {
 	border-bottom: solid;
-	padding-bottom: 8em;
-	padding-top: 2em;
+	padding-bottom: 6em;
+	padding-top: 8em;
 }
 
 
@@ -190,4 +190,7 @@ button {
 }
 button:hover {
   color: #f8f8f7;
+}
+a.down {
+
 }

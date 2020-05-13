@@ -37,8 +37,9 @@ function displayArticles(categories) {
   console.log("Check de ou ça en est");
   console.log(categories);
   $("#articles").empty();
-  for (id_article in data["content"]) {
-    article=data.content[id_article];
+  sorted_articles=data.content.sort((art1, art2) => art2.name.localeCompare(art1.name))
+  for (id_article in sorted_articles) {
+    article=sorted_articles[id_article];
     console.log(article);
     if (categories.includes(article.category)) {
       console.log("Ok, part of the category");
@@ -51,9 +52,11 @@ function displayArticles(categories) {
 
 
 function loadArticle(xhttp, article_infos) {
-  var converter = new showdown.Converter(),
-    text      = xhttp.responseText,
-    html      = converter.makeHtml(text);
+  var converter = new showdown.Converter();
+  converter.setOption('emoji', 'true');
+  converter.setOption('tasklists', 'true');
+  text      = xhttp.responseText;
+  html      = converter.makeHtml(text);
   article={"name":article_infos["article_name"], "category":article_infos.cat_name, "html":html}
   data["content"].push(article)
   if (article_infos.cat_name !== "about me") {
@@ -82,3 +85,4 @@ $( document ).ready(function() {
   console.log( "ready!" );
   /*loadDoc('articles/000.md', myFunction);*/
 });
+
