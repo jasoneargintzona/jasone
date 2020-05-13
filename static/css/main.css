@@ -6,6 +6,7 @@ $color4: #f8f8f7ff;
 $color5: #31293dff;
 */
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
 
 #title
 {
@@ -174,4 +175,13 @@ article
 {
   opacity: 1;
   transform: none;
+}
+
+button {
+  background-color: Transparent;
+  border: none;
+  color: #777;
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 26px;
 }
