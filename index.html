@@ -14,9 +14,7 @@
   <body>
 
     <header>
-
       <nav role="navigation">
-
         <div id="menuToggle">
           <!--
         A fake / hidden checkbox is used as click reciever,
@@ -43,18 +41,10 @@
               <a href="all.html" target="_blank">All</a>
             </li>
             <li>
-              <a href="micro.html" target="_blank">Micro stories</a>
-            </li>
-            <li>
-              <a href="long.html" target="_blank">Long stories</a>
-            </li>
-            <li>
               <a href="about.html" target="_blank">About me</a>
             </li>
           </ul>
         </div>
-
-
       </nav>
 
       <div id="title"> Yes, this is really Jasone's blog.</div>
@@ -65,49 +55,11 @@
       <div class="menu-trigger"></div>
 
       <section id="articles">
-        <article id="article-000">
-          article content
-        </article>
       </section>
 
     </div>
 
-    <script charset="utf-8">
-
-      function loadDoc(url, cFunction) {
-        var xhttp;
-        xhttp=new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            cFunction(this);
-          }
-        };
-        xhttp.open("GET", url, true);
-        xhttp.send();
-      }
-
-      function getArticlesList(xhttp) {
-        var text = xhttp.responseText;
-        const obj = JSON.parse(text);
-        $.each(obj["tree"], function( key, articles ) {
-          console.log(articles["path"]);
-          $("#articles").append("<article id='"+articles["path"]+"'>"+articles["path"]+"</article>");
-        })
-      }
-
-      function myFunction(xhttp) {
-        var converter = new showdown.Converter(),
-          text      = xhttp.responseText;
-          html      = converter.makeHtml(text);
-        $('#article-000').html(html);
-      }
-
-      $( document ).ready(function() {
-          loadDoc('https://api.github.com/repos/AlxndrPsclt/jasone/git/trees/1066c8cf118d8eb39fa778215241b2891d23bd4f', getArticlesList);
-          console.log( "ready!" );
-          /*loadDoc('articles/000.md', myFunction);*/
-      });
-    </script>
+    <script src="static/js/main.js"></script>
 
   </body>
 </html>
