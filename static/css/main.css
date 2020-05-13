@@ -180,8 +180,11 @@ article
 button {
   background-color: Transparent;
   border: none;
-  color: #777;
+  color: #31293d;
   text-decoration: none;
   font-family: 'DM Mono', monospace;
-  font-size: 26px;
+  font-size: 22px;
+}
+button:hover {
+  color: #f8f8f7;
 }

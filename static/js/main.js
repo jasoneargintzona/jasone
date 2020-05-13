@@ -23,7 +23,8 @@ function getArticlesList(xhttp) {
     console.log(cat_name);
     $("#menu").append("<li><button onclick=\"displayArticles(['"+cat_name+"']);\">"+cat_name+"</button></li>");
     loadDoc("https://api.github.com/repos/AlxndrPsclt/jasone/contents/articles/"+cat_name, getContentFromCategory, cat_name);
-  })
+  });
+  $("#menu").prepend("<li><button onclick='displayArticles("+JSON.stringify(data.categories)+");'>everything</button></li>");
 }
 
 
@@ -71,7 +72,7 @@ function getContentFromCategory(xhttp, cat_name) {
 
 var data={ "title":"Jasone's blog"};
 
-var display="Everything"
+var display="everything"
 
 $( document ).ready(function() {
   loadDoc('https://api.github.com/repos/AlxndrPsclt/jasone/contents/articles', getArticlesList);
