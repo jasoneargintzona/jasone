@@ -25,6 +25,8 @@ header
 article
 {
 	border-bottom: solid;
+	padding-bottom: 8em;
+	padding-top: 2em;
 }
 
 
@@ -184,6 +186,7 @@ button {
   text-decoration: none;
   font-family: 'DM Mono', monospace;
   font-size: 22px;
+	outline:none;
 }
 button:hover {
   color: #f8f8f7;

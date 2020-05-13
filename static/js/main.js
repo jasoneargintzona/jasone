@@ -24,7 +24,8 @@ function getArticlesList(xhttp) {
     $("#menu").append("<li><button onclick=\"displayArticles(['"+cat_name+"']);\">"+cat_name+"</button></li>");
     loadDoc("https://api.github.com/repos/AlxndrPsclt/jasone/contents/articles/"+cat_name, getContentFromCategory, cat_name);
   });
-  $("#menu").prepend("<li><button onclick='displayArticles("+JSON.stringify(data.categories)+");'>everything</button></li>");
+  cat_except_about = data.categories.filter(item => item !== "about me")
+  $("#menu").prepend("<li><button onclick='displayArticles("+JSON.stringify(cat_except_about)+");'>everything</button></li>");
 }
 
 
@@ -55,7 +56,9 @@ function loadArticle(xhttp, article_infos) {
     html      = converter.makeHtml(text);
   article={"name":article_infos["article_name"], "category":article_infos.cat_name, "html":html}
   data["content"].push(article)
-  displayArticle(article)
+  if (article_infos.cat_name !== "about me") {
+    displayArticle(article)
+  }
 }
 
 function getContentFromCategory(xhttp, cat_name) {
