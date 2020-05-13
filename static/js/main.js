@@ -15,37 +15,44 @@ function getArticlesList(xhttp) {
   console.log(text);
   console.log(data);
   const obj = JSON.parse(text);
-  data["content"]={"Everything":[]}
+  data["content"]=[];
   data["categories"]=[];
   $.each(obj, function( key, categories ) {
     cat_name=categories["name"];
-    data["content"][cat_name]=[];
     data.categories.push(cat_name)
     console.log(cat_name);
     $("#menu").append("<li><a href=# target='_blank'>"+cat_name+"</a></li>");
+    $("#menu").append("<li><button onclick=\"displayArticles(['"+cat_name+"'])\">"+cat_name+"</button></li>");
     loadDoc("https://api.github.com/repos/AlxndrPsclt/jasone/contents/articles/"+cat_name, getContentFromCategory, cat_name);
   })
 }
 
-function displayArticles(category) {
-    data["content"][category].forEach(displayArticle)
-}
 
 function displayArticle(article){
   $("#articles").append("<article id='"+article.name+"'>"+article.html+"</article>");
 }
 
-function displayArticlesFromCategories(categories){
-  categories.forEach(displayArticles);
+function displayArticles(categories) {
+  console.log(categories);
+  $("#articles").empty();
+  for (article in data["content"]) {
+    console.log(article.category);
+    if (categories.includes(article.category)) {
+      console.log("Ok, part of the category");
+      displayArticle(article);
+    }
+  }
+  display=categories;
 }
+
 
 
 function loadArticle(xhttp, article_infos) {
   var converter = new showdown.Converter(),
     text      = xhttp.responseText,
     html      = converter.makeHtml(text);
-  article={"name":article_infos["article_name"], "html":html}
-  data["content"][article_infos["cat_name"]].push(article)
+  article={"name":article_infos["article_name"], "category":article_infos.cat_name, "html":html}
+  data["content"].push(article)
   displayArticle(article)
 }
 
